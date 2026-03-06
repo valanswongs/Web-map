@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href=https://unpkg.com/leaflet@1.9.3/dist/leaflet.css integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="crossorigin=""/>
+    <script src=https://unpkg.com/leaflet@1.9.3/dist/leaflet.js integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  </head>
+  
+  <body style="background-color:lightgrey;">
+    <h1 style="font-size:50px; font-family: cursive"> This is web map</h1>
+    <p style="font-size:30px; margin-left:10px;font-family: cursive"> <mark>Top 5 most beautiful temples in Bangkok metropolitan region</mark></p>
+    <p style="font-size:20px; margin-left:30px;font-family: cursive; font-style: italic">Ranked by international travel magazine</p>
+	
+	<a href="https://www.outlooktravelmag.com/travel-guides/80-thailand#:~:text=Outlook%20recommends%20the%20following%20places%20to%20visit,by%20air%2C%20bus%2C%20railway%2C%20and%20water%20transport."></a>
+	<button style="font-size:30px;font-family: cursive; padding:10px 20px;"> Thailand Travel Guide website </button>
+	<br>
+	<img src="https://thumbs.dreamstime.com/b/wat-arun-temple-bangkok-thailand-famous-landmarks-panorama-view-wat-arun-temple-sunset-bangkok-thailand-watercolor-painting-329460953.jpg" style="display:block; margin:auto;"> 
+    <img src="https://media.istockphoto.com/id/624445054/vector/thailand-monks-in-a-temple.jpg?s=612x612&w=0&k=20&c=ZV3_ZDFHkQYYslZuKaWdyNsTfTKmcnhA7PvoZ9mLzuU=" width="600" height="550">
+	<img src="https://media.istockphoto.com/id/1428949263/vector/wat-arun-temple-ancient-thai-architecture-in-bangkok-watercolor-style-illustration.jpg?s=170667a&w=0&k=20&c=8FRPEOCypfh13YE9zzNgE8GxVShmQ7nPIWr1a90tRdI=" width="600" height="550">    
+	<p style="font-size:20px; color:blue; font-weight:bold; margin-left:150px;font-family: cursive"> ...The Map below shows the locations of the top 5 temples in Bangkok metropolitan region </p>
+	<div id="map" style="height: 600px"></div>
+	
+	<script>var map = L.map('map').setView([13.7563, 100.5018], 10);
+	L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all//{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap &copy; CARTO'
+    }).addTo(map);	
+	
+	var greenIcon = L.icon({
+	iconUrl: 'icon.png',
+	iconSize:     [25, 25], // size of the icon
+	iconAnchor:   [45, 45], // point of the icon which will correspond to marker's location
+	popupAnchor:  [0, -39] // point from which the popup should open relative to the iconAnchor		
+    });
+
+	
+	var marker = L.marker([13.7515019,100.4900883],{icon: greenIcon}).addTo(map);
+	marker.bindPopup("<b>วัดพระศรีรัตนศาสดาราม</b><br>ที่อยู่: ถนน หน้าพระลาน แขวงพระบรมมหาราชวัง เขตพระนคร กรุงเทพมหานคร 10200<br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Wat_Phra_Kaew_by_Ninara_TSP_edit_crop.jpg/500px-Wat_Phra_Kaew_by_Ninara_TSP_edit_crop.jpg' width='150'>").openPopup();
+	
+	var marker = L.marker([13.7421182,100.4809095],{icon: greenIcon}).addTo(map);
+	marker.bindPopup("<b>วัดอรุณราชวรารามราชวรมหาวิหาร</b><br>ที่อยู่: 	ถนนวังเดิม แขวงวัดอรุณ เขตบางกอกใหญ่ กรุงเทพมหานคร 10600 <br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg/500px-%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg' width='150'>").openPopup();
+	
+	var marker = L.marker([13.9130946,100.4187089],{icon: greenIcon}).addTo(map);
+	marker.bindPopup("<b>วัดบรมราชากาญจนาภิเษกอนุสรณ์</b><br>ที่อยู่: 75 หมู่ที่ 4 ตำบลโสนลอย อำเภอบางบัวทอง จังหวัดนนทบุรี 11110<br><img src='https://lh3.googleusercontent.com/gps-cs-s/AHVAweqNUzjxjt1wDuas_1tUKJ3lIFRQgTxO3oWX5vxJwwGvE4VP30eLBP_DVnnBDIqFFmXasR6lw2lrwc_P9ih2oA086krJudUOy7E6wl0Ya2cdAe9qvWdIAOXw6iPe30aL-fKSqGEQpg=w408-h306-k-no' width='150'>").openPopup();
+	
+	var marker = L.marker([13.8339813,100.2071627],{icon: greenIcon}).addTo(map);
+	marker.bindPopup("<b>พุทธมณฑลศาสนสถาน</b><br>ที่อยู่: 25/25 หมู่ที่ 6 ถนนพุทธมณฑล สาย 4 ตำบลศาลายา อำเภอพุทธมณฑล จังหวัดนครปฐม 73170<br><img src='https://lh3.googleusercontent.com/gps-cs-s/AHVAweoOb8b4slYEUlUmnklz8PATIpdas6eT6Vh1c-7Wcsffi8CJ0hfZuuBKnDubWd_BEuWsDBI3XuInk_T9OhHwcB0jJnn0uzAi1xIVrUUODHNubZDkUPSaG0vsLy6W5YhEYeh1HT6p=w408-h306-k-no' width='150'>").openPopup();
+	
+	var marker = L.marker([14.0673875,100.6449188],{icon: greenIcon}).addTo(map);
+	marker.bindPopup("<b>วัดพระธรรมกาย</b><br>ที่อยู่: ถนนคลองหลวง ตำบลคลองสาม อำเภอคลองหลวง ปทุมธานี 12120<br><img src='https://lh3.googleusercontent.com/p/AF1QipOCWGcEtVH8itDFh2l3Xxlp4CscSwwlvXe3vi4l=w720-h240-k-no' width='150'>").openPopup();
+	</script> 
+	
+  </body>
+</html>
